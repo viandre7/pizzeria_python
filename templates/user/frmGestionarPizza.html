@@ -1,0 +1,105 @@
+{% extends "user/index.html" %}
+{% block section %}
+    <script src="../static/Js/pizzas.js"></script>
+<script>
+    listarPizzasTabla();
+</script>
+<p>
+    <h3 class="text-center">GESTIONAR PIZZAS</h3>
+</p>
+<p style="display:flex; justify-content:flex-end; width:100%; padding:0;">
+<button id="btnAbrirModalAgregar" class="btn btn-warning">Registrar Pizza</button>
+</p>
+<table id="tblPizzas" align="center" class="table table-bordered">
+    <thead class="bg-success text-white">
+        <tr class="text-center">
+            <th width="20%">Nombre</th>
+            <th width="50%">Ingredientes</th>
+            <th width="15%">Valor</th>
+            <th width="10%">Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="fila" class="primeraFila">
+            <td name="pNombre" id="pNombre"></td>
+            <td name="pIngredientes" id="pIngredientes"></td>
+            <td name="pValor" id="pValor" class="text-right"></td>           
+            <td name="pAccion" id="pAccion" align="center">
+                <i id="btnEditar" class="fas fa-edit text-warning" title="Editar"></i>
+                <i id="btnEliminar" class="fas fa-trash-alt text-danger" title="Eliminar"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- The Modal -- para agregar Autor-->
+<div class="modal" id="modalAgregarPizza">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Encabezado -->
+            <div class="modal-header bg-info text-white">
+                <h4 class="modal-title">Registrar Pizza</h4>
+                <button type="button" class="text-white close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal Contenido -->
+            <div class="modal-body">
+                <form id="frmAgregarPizza" name="frmAgregarPizza" 
+                    action="" method="post" enctype="multipart/form-data" class="was-validated">
+                    <div class="principal" style="width: 100%">        
+                        <div class="principal-body">
+                            <div class="form-group row">
+                                
+                                <div class="col-lg-12">
+                                    <label for="txtNombre" class="font-weight-bold">Nombre de la Pizza</label>   
+                                    <input type="text" name="txtNombre" id="txtNombre" required
+                                    placeholder="Ingrese Nombre de la Pizza" class="form-control">
+
+                                </div>   
+                            </div>
+                                
+                            <div class="form-group row">
+                                <div class="col-lg-12">
+                                    <label for="txtIngredientes" class="font-weight-bold">Ingredientes de la Pizza</label>   
+                                    <textarea name="txtIngredientes" id="txtIngredientes" cols="30" rows="3" required 
+                                    placeholder="Ingrese Aquí de manera breve el asunto" class="form-control"></textarea>
+                                    <div class="invalid-feedback">Debe Ingresar los ingredientes de la Pizza</div>
+                                </div>
+                            </div>
+
+                        
+                            <div class="form-group row">
+                                <div class="col-lg-12">
+                                    <label for="txtValor" class="font-weight-bold">Valor</label>   
+                                    <input type="number" name="txtValor" id="txtValor"
+                                    class="form-control" required>
+                                    <div class="invalid-feedback">Debe Ingresar Valor de la Pizza</div>
+                                </div>                 
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-lg-12">
+                                    <label for="fileFoto" class="font-weight-bold">Foto (Formato jpg)</label>   
+                                    <input type="file" name="fileFoto" id="fileFoto" accept="image/jpg"
+                                    class="form-control" required>
+                                    <div class="invalid-feedback">Debe Seleccionar foto de la Pizza</div>
+                                </div>                 
+                            </div>
+                        </div>    
+                        
+                    </div>
+                    <input type="hidden" name="accion" value="Agregar">
+                </form> 
+            </div>
+            <div id="mensajeModal" style="text-align:center"></div>
+
+                        <!-- Modal Pie Página -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnRegistrarPizza">Agregar</button>
+                <button type="button" class="btn btn-danger" id="btnCancelarModal" data-dismiss="modal">Cancelar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+    
+{% endblock %}

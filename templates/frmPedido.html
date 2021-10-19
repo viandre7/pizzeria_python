@@ -1,0 +1,112 @@
+{% extends "index.html" %}
+{% block section %}
+    <script src="static/js/pedido.js"></script>
+    <script src="static/js/cliente.js"></script>
+    <p>
+    <form id="frmPedido" name="frmPedido" method="post">
+    <table align="center" class="table table-bordered w-50">
+        <thead>
+            <tr class="bg-success text-white text-center">
+                <th>REALIZAR PEDIDO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><label>Pizza Seleccionada:</label>
+                    <input type="text" id="txtPizza" name="txtPizza" class="form-control" value="{{ datos[1]}}" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Ingrese Cantidad a Pedir: </label>
+                    <input type="number" id="txtCantidad" name="txtCantidad" class="form-control" required >
+                </td>
+            </tr>
+            <tr>
+                <td><label>Dirección entrega del Pedido: </label>
+                    <input type="text" id="txtDireccion" name="txtDireccion" class="form-control" required >
+                </td>
+            </tr>
+            <tr>
+                <td><label>Ingrese Correo Electrónico del Cliente:</label>
+                    <input type="email" id="txtCorreo" name="txtCorreo" class="form-control" required>
+                    <div id="datosCliente"></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="button" id="btnAgregarPedido" name="btnAgregarPedido" value="Registrar" class="btn btn-success" required >
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <input type="hidden" id="idCliente" name="idCliente" value="" placeholder="idCliente" >
+    <input type="hidden" id="txtNombreCliente" name="txtNombreCliente" value="" placeholder='txtNombreCliente'>
+    <input type="hidden" id="idPizza" name="idPizza" value="{{datos[0]}}">
+    <input type="hidden" id="accion" name="accion" value="Agregar">
+    
+    </form>
+
+    <div id="mensajePedido" style="text-align:center"></div>
+
+    <!-- The Modal -- para agregar Autor-->
+    <div class="modal" id="modalAgregarCliente">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Encabezado -->
+                <div class="modal-header bg-info text-white">
+                    <h4 class="modal-title">Registrar Cliente</h4>
+                    <button type="button" class="text-white close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal Contenido -->
+                <div class="modal-body">
+                    <form id="frmAgregarCliente" name="frmAgregarCliente" method="post">
+                        <table class="table table-bordered w-75" align="center">                                    
+                            <tbdoy>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="txtCorreo">Correo Electrónico</label>
+                                            <input type="email" name="txtCorreo"  id="txtCorreoModal"
+                                            value="" class="form-control" required />
+                                        </div>
+                                    </td>
+                                </tr>                                        
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="txtNombre">Nombre Completo:</label>
+                                            <input type="text" name="txtNombre"  id="txtNombre"
+                                                value="" class="form-control" required/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="txtTelefono">Teléfono: </label>
+                                            <input type="text" name="txtTelefono"  id="txtTelefono"
+                                            value="" class="form-control" required/>
+                                        </div>
+                                    </td>
+                                </tr>                                     
+                            </tbdoy>
+                        </table>
+                        <input type="hidden" name="accion" id="accion" value="Agregar" />
+                    </form>
+                            
+                </div>
+                <div id="mensajeModal" style="text-align:center"></div>
+
+                            <!-- Modal Pie Página -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="btnAgregarClienteModal">Agregar</button>
+                    <button type="button" class="btn btn-danger" id="btnCancelarModal" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

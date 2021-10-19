@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% block section %}
+<script src="static/js/pizzas.js""></script>
+<script> 
+  listarPizzas();
+  
+</script>
+<br>
+<h4 align="center">NUESTRAS PIZZAS DISPONIBLES PARA QUE USTED HAGA SU PEDIDO</h4>
+  <div class="card-columns" >
+    <div id="cardPrimera" class="card primera" style="max-width:80%">
+      <div class="card-header">
+        <img id="img" class="card-img-top" src="" alt="Card image" width="30px" height="80px">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title" id="cTitulo"></h5>
+        <p class="card-text" id="cDescripcion" style="height:30%"></p>
+      </div>
+      <div class="card-footer">        
+        <a id="cPedido" href="#" class="btn btn-success">Comprar</a>
+      </div>
+    </div>    
+  </div>
+
+<br>
+{% endblock %}

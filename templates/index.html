@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" 
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer"> </script>
+        <!-- <link rel="stylesheet" href="../static/css/misEstilos.css"> -->
+         <link rel="stylesheet" href="{{url_for('static', filename='css/misEstilos2.css')}}">
+        <title>PIZZERÍA OPITA...........</title>
+    </head>
+    <!-- Aquí todo el cuerpo del formulario -->
+    <body>
+        <div class="container">
+            <header> 
+                <div class="logo" align="center" style="background-image: url(static/recursos/bannerpizza.png);">
+                        <!--<img src="{{url_for('static', filename='recursos/bannerPizza.png')}}" width='100%' height='120px' />-->
+                </div> 
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="/pizzasPedido">Nuestras Pizzas</a></li>
+                    <li><a href="/quienesSomos">Quienes Somos</a></li>
+                    <li><a href="/mostrarIniciarSesion">Ingresar</a></li>
+                </ul>
+            </nav>
+            <section>
+                {% block section %}
+                {% endblock %}
+            </section>
+            <footer> 
+                <table align="center" class="table w-100">
+                    <tr>                        
+                        <td align="center">
+                            <b>Pizzeria Opita</b><br>    
+                            Teléfonos: 30077777 - 315999999<br>
+                            Correo: pizzeriaopita@gmail.com<br>
+                        </td>                        
+                    </tr>
+                </table>
+            </footer>
+        </div>
+    </body>
+</html>
+
+
+

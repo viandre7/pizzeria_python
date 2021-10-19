@@ -1,0 +1,38 @@
+{% extends "user/index.html" %}
+{% block section %}    
+    <script src="../static/js/pedido.js"></script>
+    <script src="../static/js/cliente.js"></script>
+<script> 
+    listarPedidos();
+    recargarPedidos()
+</script>
+<br>
+<h3 align="center">PEDIDOS POR ATENDER</h3>
+<table id="tblPedidos" align="center" class="table table-bordered w-100">
+    <thead class="bg-success text-white">
+        <tr class="text-center">
+            <th>Cliente</th>
+            <th>Tipo Pizza</th>
+            <th>Cantidad</th>
+            <th>Fecha Hora</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="fila" class="primeraFila">
+            <td id="cPedido" name="cPedido" ></td>
+            <td id="tPedido" name="tPedido" ></td>
+            <td id="kPedido" name="kPedido" ></td>
+            <td id="fPedido" name="fPedido" ></td>
+            <td id="ePedido" name="ePedido"  align="center">
+                <button id="btnEstadoPedido" style="width:120px"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<div id="mensaje" class="text-center">
+    {{mensaje}}
+</div>
+
+{% endblock %}
